@@ -1,9 +1,9 @@
 import { z } from "zod";
 
-export const createProductSchema = z.object({
+export const createCustomerSchema = z.object({
   name: z.string().min(1),
-  description: z.string().optional(),
-  price: z.number().positive()
+  email: z.string().email(),
+  phone: z.string().optional()
 });
 
-export const updateProductSchema = createProductSchema.partial();
+export const updateCustomerSchema = createCustomerSchema.partial();
